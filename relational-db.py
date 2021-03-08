@@ -96,10 +96,19 @@ if __name__ == "__main__":
                                     JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
                                     JOIN Track ON Track.TrackId = InvoiceLine.TrackId;
                                 """)
-    for song in order_and_song:
-        print(song)
+    #for song in order_and_song:
+     #   print(song)
 
+    # print all the tracks with corresponding artist and album
 
+    aat = db.execute("""SELECT Track.Name, Artist.Name, Album.Title
+                        FROM Track
+                        JOIN Album ON Track.AlbumId = Album.AlbumId
+                        JOIN Artist ON Artist.ArtistId = Album.ArtistId
+                        ORDER BY Artist.Name;
+    
+    """)
 
-
+    #for a in aat:
+     #   print(a)
 
